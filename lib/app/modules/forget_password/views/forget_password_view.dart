@@ -1,4 +1,6 @@
+import 'package:ads_challenge/app/modules/components/app_bar.dart';
 import 'package:ads_challenge/app/modules/components/tittle_auth.dart';
+import 'package:ads_challenge/app/routes/app_pages.dart';
 import 'package:ads_challenge/app/utils/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,9 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
                 margin: const EdgeInsets.all(15),
                 child: Form(
                     key: controller.formKey,
-                    child: Column(children: [
+                    child: Column(
+                      children: [
+                      AppbarCustom(tittle: "Forget Password", routeBack: Routes.LOGIN)  ,
                       const SizedBox(
                         height: 80,
                       ),

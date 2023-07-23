@@ -21,14 +21,19 @@ class ProfileView extends GetView<ProfileController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: CircularIconWidget(
-                      iconData: Icons.arrow_back_ios_new_sharp,
-                      iconSize: 25,
-                      iconColor: blackColor,
-                      size: 60,
-                      backgroundColor: semiWhiteColor,
+                  InkWell(
+                    onTap: () {
+                      Get.offAllNamed(Routes.DASHBOARD);
+                    },
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: CircularIconWidget(
+                        iconData: Icons.arrow_back_ios_new_sharp,
+                        iconSize: 25,
+                        iconColor: blackColor,
+                        size: 60,
+                        backgroundColor: semiWhiteColor,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 100),

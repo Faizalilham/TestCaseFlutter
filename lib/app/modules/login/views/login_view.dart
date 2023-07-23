@@ -129,7 +129,8 @@ class LoginView extends GetView<LoginController> {
                             horizontal: 15, vertical: 15),
                         child: ElevatedButton(
                             onPressed: () {
-                             Get.toNamed(Routes.DASHBOARD);
+                              Get.put(LoginController());
+                              Get.toNamed(Routes.DASHBOARD);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: primaryColor,

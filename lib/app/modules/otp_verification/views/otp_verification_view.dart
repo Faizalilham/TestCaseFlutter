@@ -1,3 +1,4 @@
+import 'package:ads_challenge/app/modules/login/controllers/login_controller.dart';
 import 'package:ads_challenge/app/routes/app_pages.dart';
 import 'package:ads_challenge/app/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,7 @@ class OtpVerificationView extends GetView<OtpVerificationController> {
       width: 60,
       height: 60,
       textStyle: const TextStyle(
-          fontSize: 20,
-          color: blackColor,
-          fontWeight: FontWeight.w600),
+          fontSize: 20, color: blackColor, fontWeight: FontWeight.w600),
       decoration: BoxDecoration(
         border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
         borderRadius: BorderRadius.circular(20),
@@ -43,7 +42,6 @@ class OtpVerificationView extends GetView<OtpVerificationController> {
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(
-            
             children: [
               const SizedBox(
                 height: 25,
@@ -85,7 +83,6 @@ class OtpVerificationView extends GetView<OtpVerificationController> {
                 defaultPinTheme: defaultPinTheme,
                 focusedPinTheme: focusedPinTheme,
                 submittedPinTheme: submittedPinTheme,
-
                 showCursor: true,
                 onCompleted: (pin) => print(pin),
               ),
@@ -97,7 +94,8 @@ class OtpVerificationView extends GetView<OtpVerificationController> {
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                 child: ElevatedButton(
                     onPressed: () {
-                      
+                      Get.put(LoginController());
+                      Get.offAllNamed(Routes.LOGIN);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
@@ -110,7 +108,7 @@ class OtpVerificationView extends GetView<OtpVerificationController> {
                       ),
                     ),
                     child: const Text(
-                      'Sign In',
+                      'Done',
                       style: TextStyle(fontSize: 18),
                     )),
               ),
@@ -122,14 +120,13 @@ class OtpVerificationView extends GetView<OtpVerificationController> {
                     children: [
                       const Text(
                         'Resend code to',
-                        style: TextStyle(
-                            fontSize: 16,color: semiGreyColor),
+                        style: TextStyle(fontSize: 16, color: semiGreyColor),
                       ),
                       Obx(() {
                         return Text(
                           '00:${controller.seconds.value.toString().padLeft(2, '0')}',
                           style: const TextStyle(
-                              fontSize: 16,color: semiGreyColor),
+                              fontSize: 16, color: semiGreyColor),
                         );
                       })
                     ],

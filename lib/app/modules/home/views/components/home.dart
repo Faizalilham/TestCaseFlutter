@@ -1,5 +1,4 @@
 import 'package:ads_challenge/app/modules/components/category.dart';
-import 'package:ads_challenge/app/modules/components/circular_icon_widget.dart';
 import 'package:ads_challenge/app/modules/components/shoes.dart';
 import 'package:ads_challenge/app/routes/app_pages.dart';
 import 'package:ads_challenge/app/utils/utils.dart';
@@ -10,40 +9,45 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 import 'package:get/get.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
           backgroundColor: semiWhiteColor,
           index: 2,
-          color: primaryColor,
+          color: whiteColor,
           items: <Widget>[
             SvgPicture.asset(
-              'assets/icons/home.svg',
+              'assets/home/home.svg',
               width: 30,
               height: 30,
             ),
             SvgPicture.asset(
-              'assets/icons/Icon.svg',
+              'assets/home/notif.svg',
               width: 30,
               height: 30,
             ),
             SvgPicture.asset(
-              'assets/icons/bag.svg',
+              'assets/home/notif.svg',
               width: 30,
               height: 30,
             ),
             SvgPicture.asset(
-              'assets/icons/notif.svg',
+              'assets/home/notif.svg',
               width: 30,
               height: 30,
             ),
-            SvgPicture.asset(
-              'assets/icons/profile.svg',
-              width: 30,
-              height: 30,
+            InkWell(
+              onTap: () {
+                Get.toNamed(Routes.PROFILE);
+              },
+              child: SvgPicture.asset(
+                'assets/home/profile.svg',
+                width: 30,
+                height: 30,
+              ),
             ),
           ],
           onTap: (index) {},
@@ -178,29 +182,39 @@ class HomeView extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 1,
-                  child: Container(
-                    height: 400, // Set the height you want here
-                    child: Shoes(
-                      name: "Nike Jordan",
-                      price: "Rp 320.000",
-                      imageUrl: "assets/home/shoes.png",
-                      onAddButtonPressed: () {
+                  child: InkWell(
+                    onTap:(){
                         Get.toNamed(Routes.DETAIL);
-                      },
+                    },
+                    child: Container(
+                      height: 400,
+                      child: Shoes(
+                        name: "Nike Jordan",
+                        price: "Rp 320.000",
+                        imageUrl: "assets/home/shoes.png",
+                        onAddButtonPressed: () {
+                          Get.toNamed(Routes.DETAIL);
+                        },
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
                   flex: 1,
-                  child: Container(
-                    height: 400, // Set the height you want here
-                    child: Shoes(
-                      name: "Nike Air Max",
-                      price: "Rp 752.000",
-                      imageUrl: "assets/home/shoes.png",
-                      onAddButtonPressed: () {
-                        Get.toNamed(Routes.DETAIL);
-                      },
+                  child: InkWell(
+                    onTap: (){
+                      Get.toNamed(Routes.DETAIL);
+                    },
+                    child: Container(
+                      height: 400, 
+                      child: Shoes(
+                        name: "Nike Air Max",
+                        price: "Rp 752.000",
+                        imageUrl: "assets/home/shoes.png",
+                        onAddButtonPressed: () {
+                          Get.toNamed(Routes.DETAIL);
+                        },
+                      ),
                     ),
                   ),
                 ),
